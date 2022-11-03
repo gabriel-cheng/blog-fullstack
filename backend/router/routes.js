@@ -7,13 +7,13 @@ router.delete('/:id', async(req, res) => {
 	const post = await Post.findOne({_id:id});
 
 	if(!post) {
-		res.status(422).json({deleteFindUserErr: 'Usuário não encontrado!'});
+		res.status(422).json({deleteFindUserErr: 'Postagem não encontrada!'});
 	}
 
 	try {
 		await Post.deleteOne({_id:id});
 
-		res.status(200).json({message: 'Usuário deletado com sucesso!'});
+		res.status(200).json({message: 'Postagem deletada com sucesso!'});
 	} catch(err) {
 		res.status(400).json({deleteErr: err});
 	}
@@ -33,7 +33,7 @@ router.patch('/:id', async(req, res) => {
 		const updatePost = await Post.updateOne({_id:id}, post);
 
 		if(updatePost.matchedCount == 0) {
-			res.status(422).json({message: 'O usuário não foi encontrado!'});
+			res.status(422).json({message: 'A postagem não foi encontrada!'});
 		}
 
 		res.status(200).json(post);
@@ -54,7 +54,7 @@ router.post('/', async(req, res) => {
 	try {
 		await Post.create(post);
 
-		res.status(200).json({status: 'Usuário criado com sucesso!'});
+		res.status(200).json({status: 'Postagem criada com sucesso!'});
 	}catch(err) {
 		res.status(400).json({createPostErr: err});
 	}
@@ -69,7 +69,7 @@ router.get('/:id', async(req, res) => {
 		});
 
 		if(!post) {
-			console.log('Pessoa não encontrada!');
+			console.log('Postagem não encontrada!');
 		} else {
 			res.status(200).json(post);
 		}
