@@ -1,80 +1,37 @@
 <script>
-    
+    export default {
+        data() {
+            return {
+                postagens: []
+            }
+        },
+        mounted() {
+            this.getAllPosts();
+        },
+        methods: {
+            async getAllPosts() {
+                const response = await fetch('http://localhost:5000')
+                .then(e => e.json());
+
+                for(let i of response) {
+                    this.postagens.push(i);
+                }
+            }
+        }
+    }
 </script>
 
 <template>
     <main id="postsContainer">
-        <div class="subContainer">
-            <div class="titleContainer">
-                <h1>Visualizar postagens</h1>
-            </div>
-            <div class="postagensContent">
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil cupiditate libero, id quas quos natus distinctio nemo! Recusandae, non temporibus nulla harum consectetur doloribus rerum qui, debitis, rem dolorem eum.
-                </p>
-            </div>
-            <div class="buttonContainer">
-                <router-link to="/postar">
-                    <button>Criar postagem</button>
-                </router-link>
+        <div class="postagensContent">
+            <div class="content" v-for="post of this.postagens" :key="post.id">
+                <div class="titlesContainer">
+                    <h1 class="title">{{post.title}}</h1>
+                    <h2 class="subtitle">{{post.subtitle}}</h2>
+                </div>
+                <div class="messageContainer">
+                    <p class="message">{{post.message}}</p>
+                </div>
             </div>
         </div>
     </main>
@@ -84,58 +41,20 @@
     #postsContainer {
         width: 100%;
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 60px 0 0 0;
+        /* margin: 60px 0 0 0; */
+        padding: 90px 0 0 0;
+        background-color: rgb(247, 246, 246);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
-    .subContainer {
-        width: 600px;
-        height: 500px;
-        background-color: #fff;
-        border-radius: 10px;
-        color: #000;
+    .title {
+        font-size: 3.6rem;
+        margin: 20px 0 0 0;
     }
-    .titleContainer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .subtitle {
         font-size: 2rem;
-        margin: 0 0 10px 0;
-        position: relative;
     }
-    .titleContainer::after {
-        content: '';
-        width: 80%;
-        height: 1px;
-        background: grey;
-        position: absolute;
-        bottom: -7px;
-    }
-    .postagensContent {
-        padding: 0 20px;
-        overflow-y: auto;
-        height: 435px;
-    }
-    .buttonContainer a {
-        width: 100%;
-        height: 50px;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        padding: 5px 0;
-        border-radius: 0 0 10px 10px;
-    }
-    .buttonContainer button {
-        width: 50%;
-        cursor: pointer;
-        background-color: rgb(26, 22, 22);
-        border: 0;
-        color: #fff;
-        border-radius: 5px;
-    }
-    .buttonContainer button:hover {
-        background-color: rgba(26, 22, 22, 0.466);
-        color: #000;
+    .message {
+        font-size: 1.6rem;
+        text-indent: 5ch;
     }
 </style>

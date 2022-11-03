@@ -1,5 +1,25 @@
 <script>
-    
+    export default {
+        methods: {
+            async sendPost(event) {
+                const title = document.querySelector('#inputTitle').value;
+                const subtitle = document.querySelector('#inputSubtitle').value;
+                const message = document.querySelector('#informePostagem').value;
+
+                fetch('http://localhost:5000', {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        title: title,
+                        subtitle: subtitle,
+                        message: message
+                    })
+                })
+                .then(alert('Sua postagem foi enviada!'))
+                .catch(err => console.log({sendError: err}))
+            }
+        }
+    }
 </script>
 
 <template>
@@ -8,11 +28,12 @@
             <div class="titleContainer">
                 <h1>Blog Super Maneiro</h1>
             </div>
-            <form action="" method="post" class="blogContent">
+            <form @submit="sendPost();" class="blogContent">
                 <label for="inputTitle">Informe o título da postagem</label>
                 <input type="text" name="inputTitle" id="inputTitle" placeholder="Infome o título da postagem">
                 <label for="inputSubtitle">Informe o subtitulo</label>
                 <input type="text" name="inputSubtitle" id="inputSubtitle" placeholder="Infome o subtitulo da postagem">
+
                 <label for="informePostagem">Informe o conteúdo da postagem</label>
                 <textarea name="informePostagem" id="informePostagem" placeholder="Informe o conteúdo da postagem"></textarea>
 
