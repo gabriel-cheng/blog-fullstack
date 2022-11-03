@@ -53,6 +53,7 @@
         justify-content: center;
         align-items: center;
         margin: 60px 0 0 0;
+        background-color: #1F2024;
     }
     .mainSubcontainer {
         background-color: #fff;
