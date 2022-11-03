@@ -15,6 +15,7 @@
 
                 for(let i of response) {
                     this.postagens.push(i);
+                    this.postagens.reverse();
                 }
             }
         }
@@ -41,9 +42,7 @@
     #postsContainer {
         width: 100%;
         height: 100vh;
-        /* margin: 60px 0 0 0; */
         padding: 90px 0 0 0;
-        background-color: rgb(247, 246, 246);
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     .title {
