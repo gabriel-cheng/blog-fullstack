@@ -1,8 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-function lazyLoad(view) {
-  return import(`../views/${view}.vue`);
-}
-// import Home from '../views/Home.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,17 +6,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: lazyLoad('Home')
+      component: () => {return import('../views/Home.vue')}
     },
     {
       path: '/postar',
       name: 'postar',
-      component: lazyLoad('Postar')
+      component: () => {return import('../views/Postar.vue')}
     },
     {
         path: '/admin',
         name: 'admin',
-        component: lazyLoad('Admin')
+        component: () => {return import('../views/Admin.vue')}
     }
   ]
 })
