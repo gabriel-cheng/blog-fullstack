@@ -6,8 +6,8 @@ const PORT = process.env.PORT || 5000;
 const router = require('./router/routes.js');
 const mongoConnect = require('./database/connect');
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 mongoConnect();
 
